@@ -3,10 +3,12 @@
 import tkinter as tk
 import tkinter.messagebox
 
+import platform
 
 
-
-
+if (platform.system() == "Darwin"):
+	print("system is Mac")
+	
 window = tk.Tk() # 生成一个窗口对象
 window.title('多包发送生成工具') # 设置窗口标题
 window.geometry("640x280")
@@ -140,8 +142,8 @@ def spn_fmi_aly(spnn,fmin):
 	return spn_l,spn_m,byte4
 #单包发送
 def single_send():
-
-	
+    
+	global Entry
 	id_s,error_num = light_id_anly(0)
 	spnn = hex(int(spn1.get()))
 	fmin = fmi1.get()
@@ -154,57 +156,58 @@ def single_send():
 
 #多包发送
 def multi_send(package_num):
-	id_s ,error_num = light_id_anly(1)
-	id_m ,_ = light_id_anly(2)
+    global Entry
+    id_s ,error_num = light_id_anly(1)
+    id_m ,_ = light_id_anly(2)
 	
-	spnn1 = hex(int(spn1.get()))
-	fmin1 = fmi1.get()
-	spn1_l,spn1_m,spn1_h = spn_fmi_aly(spnn1,fmin1)
-	spnn2 = hex(int(spn2.get()))
-	fmin2 = fmi2.get()
-	spn2_l,spn2_m,spn2_h = spn_fmi_aly(spnn2,fmin2)
+    spnn1 = hex(int(spn1.get()))
+    fmin1 = fmi1.get()
+    spn1_l,spn1_m,spn1_h = spn_fmi_aly(spnn1,fmin1)
+    spnn2 = hex(int(spn2.get()))
+    fmin2 = fmi2.get()
+    spn2_l,spn2_m,spn2_h = spn_fmi_aly(spnn2,fmin2)
 
-	if package_num > 2:
-		spnn3 = hex(int(spn3.get()))
-		fmin3 = fmi3.get()
-		spn3_l,spn3_m,spn3_h = spn_fmi_aly(spnn3,fmin3)
+    if package_num > 2:
+        spnn3 = hex(int(spn3.get()))
+        fmin3 = fmi3.get()
+        spn3_l,spn3_m,spn3_h = spn_fmi_aly(spnn3,fmin3)
 
-	if package_num > 3:
-		spnn4 = hex(int(spn4.get()))
-		fmin4 = fmi4.get()
-		spn4_l,spn4_m,spn4_h = spn_fmi_aly(spnn4,fmin4)
-	if package_num > 4:
-		spnn5 = hex(int(spn5.get()))
-		fmin5 = fmi5.get()
-		spn5_l,spn5_m,spn5_h = spn_fmi_aly(spnn5,fmin5)
+    if package_num > 3:
+        spnn4 = hex(int(spn4.get()))
+        fmin4 = fmi4.get()
+        spn4_l,spn4_m,spn4_h = spn_fmi_aly(spnn4,fmin4)
+    if package_num > 4:
+        spnn5 = hex(int(spn5.get()))
+        fmin5 = fmi5.get()
+        spn5_l,spn5_m,spn5_h = spn_fmi_aly(spnn5,fmin5)
 
-	if package_num == 2:
+    if package_num == 2:
 
-		mul2_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
-		mul2_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
-		mul2_3 = ['0x02',spn2_m,spn2_h,'0x7f','0xff','0xff','0xff','0xff']
-		return mul2_1,mul2_2,mul2_3,id_s,id_m
-	if package_num == 3:
+        mul2_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
+        mul2_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
+        mul2_3 = ['0x02',spn2_m,spn2_h,'0x7f','0xff','0xff','0xff','0xff']
+        return mul2_1,mul2_2,mul2_3,id_s,id_m
+    if package_num == 3:
 
-		mul3_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
-		mul3_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
-		mul3_3 = ['0x02',spn2_m,spn2_h,'0x7f',spn3_l,spn3_m,spn3_h,'0x7f']
-		return mul3_1,mul3_2,mul3_3,id_s,id_m
-	if package_num == 4:
+        mul3_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
+        mul3_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
+        mul3_3 = ['0x02',spn2_m,spn2_h,'0x7f',spn3_l,spn3_m,spn3_h,'0x7f']
+        return mul3_1,mul3_2,mul3_3,id_s,id_m
+    if package_num == 4:
 
-		mul4_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
-		mul4_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
-		mul4_3 = ['0x02',spn2_m,spn2_h,'0x7f',spn3_l,spn3_m,spn3_h,'0x7f']
-		mul4_4 = ['0x03',spn4_l,spn4_m,spn4_h,'0x7f','0xff','0xff','0xff']
-		return mul4_1,mul4_2,mul4_3,id_s,id_m
-	if package_num == 5:
+        mul4_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
+        mul4_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
+        mul4_3 = ['0x02',spn2_m,spn2_h,'0x7f',spn3_l,spn3_m,spn3_h,'0x7f']
+        mul4_4 = ['0x03',spn4_l,spn4_m,spn4_h,'0x7f','0xff','0xff','0xff']
+        return mul4_1,mul4_2,mul4_3,id_s,id_m
+    if package_num == 5:
 
-		mul5_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
-		mul5_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
-		mul5_3 = ['0x02',spn2_m,spn2_h,'0x7f',spn3_l,spn3_m,spn3_h,'0x7f']
-		mul5_4 = ['0x03',spn4_l,spn4_m,spn4_h,'0x7f',spn5_l,spn5_m,spn5_h]
-		mul5_5 = ['0x04','0x7f','0xff','0xff','0xff','0xff','0xff','0xff']
-		return mul5_1,mul5_2,mul5_3,mul5_4,mul5_5,id_s,id_m
+        mul5_1 = ['0x20',hex(package_num*2),'0x00',hex(package_num),'0xff','0xCA','0xFE','0x00']
+        mul5_2 = ['0x01',hex(error_num),'0xff',spn1_l,spn1_m,spn1_h,'0x7f',spn2_l]
+        mul5_3 = ['0x02',spn2_m,spn2_h,'0x7f',spn3_l,spn3_m,spn3_h,'0x7f']
+        mul5_4 = ['0x03',spn4_l,spn4_m,spn4_h,'0x7f',spn5_l,spn5_m,spn5_h]
+        mul5_5 = ['0x04','0x7f','0xff','0xff','0xff','0xff','0xff','0xff']
+        return mul5_1,mul5_2,mul5_3,mul5_4,mul5_5,id_s,id_m
 
 
 def hit():
@@ -223,38 +226,38 @@ def hit():
 	if package_num < 2:
 		print("单包发送")
 		single,id_s = single_send()
-		print("MSG_ID:",id_s,'Data:',single,'\n')
+		print("MSG_ID:",id_s,'Data:',single)
 	else:
 		print("多包发送")
 		if(package_num == 2):
 
 			mul2_1,mul2_2,mul2_3,id_s,id_m = multi_send(package_num)
-			print("MSG_ID:",id_s,'Data1:',mul2_1,'\n')
-			print("MSG_ID:",id_m,'Data2:',mul2_2,'\n')
-			print("MSG_ID:",id_m,'Data3:',mul2_3,'\n')
+			print("MSG_ID:",id_s,'Data1:',mul2_1)
+			print("MSG_ID:",id_m,'Data2:',mul2_2)
+			print("MSG_ID:",id_m,'Data3:',mul2_3)
 
 		if(package_num == 3):
 
 			mul3_1,mul3_2,mul3_3,id_s,id_m = multi_send(package_num)
-			print("MSG_ID:",id_s,'Data1:',mul3_1,'\n')
-			print("MSG_ID:",id_m,'Data2:',mul3_2,'\n')
-			print("MSG_ID:",id_m,'Data3:',mul3_3,'\n')
+			print("MSG_ID:",id_s,'Data1:',mul3_1)
+			print("MSG_ID:",id_m,'Data2:',mul3_2)
+			print("MSG_ID:",id_m,'Data3:',mul3_3)
 
 		if(package_num == 4):
 
 			mul4_1,mul4_2,mul4_3,id_s,id_m = multi_send(package_num)
-			print("MSG_ID:",id_s,'Data1:',mul4_1,'\n')
-			print("MSG_ID:",id_m,'Data2:',mul4_2,'\n')
-			print("MSG_ID:",id_m,'Data3:',mul4_3,'\n')
+			print("MSG_ID:",id_s,'Data1:',mul4_1)
+			print("MSG_ID:",id_m,'Data2:',mul4_2)
+			print("MSG_ID:",id_m,'Data3:',mul4_3)
 
 		if(package_num == 5):
 
 			mul5_1,mul5_2,mul5_3,mul5_4,mul5_5,id_s,id_m = multi_send(package_num)
-			print("MSG_ID:",id_s,'Data1:',mul5_1,'\n')
-			print("MSG_ID:",id_m,'Data2:',mul5_2,'\n')
-			print("MSG_ID:",id_m,'Data3:',mul5_3,'\n')
-			print("MSG_ID:",id_m,'Data3:',mul5_4,'\n')
-			print("MSG_ID:",id_m,'Data3:',mul5_5,'\n')
+			print("MSG_ID:",id_s,'Data1:',mul5_1)
+			print("MSG_ID:",id_m,'Data2:',mul5_2)
+			print("MSG_ID:",id_m,'Data3:',mul5_3)
+			print("MSG_ID:",id_m,'Data3:',mul5_4)
+			print("MSG_ID:",id_m,'Data3:',mul5_5)
 			
 			
 #解析按钮
