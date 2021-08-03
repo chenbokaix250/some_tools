@@ -96,7 +96,7 @@ cd  build
  ./client_video 127.0.0.1 2000 
  ```
 
-## command
+### command
 
 image command include two parts:client& server
 
