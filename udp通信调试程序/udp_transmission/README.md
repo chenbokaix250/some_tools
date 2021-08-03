@@ -93,7 +93,6 @@ server_msg only has 1 parameters:
 
 ## Todo
 
-* 后期加入 启动和结束的通信
-* 编写脚本
+后期加入 启动和结束的通信
 
 

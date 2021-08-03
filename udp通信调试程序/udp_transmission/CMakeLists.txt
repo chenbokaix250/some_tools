@@ -16,3 +16,8 @@ add_executable( server_video video/Server_video.cpp lib/PracticalSocket.cpp )
 target_link_libraries( server_video ${OpenCV_LIBS} )
 add_executable( client_video video/Client_video.cpp lib/PracticalSocket.cpp )
 target_link_libraries( client_video ${OpenCV_LIBS} )
+
+add_executable( server_cmd command/Server_cmd.cpp lib/PracticalSocket.cpp )
+target_link_libraries( server_cmd ${OpenCV_LIBS} )
+add_executable( client_cmd command/Client_cmd.cpp lib/PracticalSocket.cpp )
+target_link_libraries( client_cmd ${OpenCV_LIBS} )

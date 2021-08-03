@@ -1,5 +1,3 @@
-
-
 #include "../lib/PracticalSocket.h" // For UDPSocket and SocketException
 #include <iostream>          // For cout and cerr
 #include <cstdlib>           // For atoi()
@@ -61,14 +59,21 @@ int main(int argc, char * argv[]) {
                 cout<<value<<";";
             cout<<endl;
 
+            if(array[0] == 1){
+
+                cout<<"系统工作正常"<<endl;
+            }else{
+                cout<<"系统工作异常"<<endl;
+            }
             cout<<"-------result-------"<<endl;
-            cout<<"xmin:"<<array[0]<<endl;
-            cout<<"xmax:"<<array[1]<<endl;
-            cout<<"ymin:"<<array[2]<<endl;
-            cout<<"ymax:"<<array[3]<<endl;
-            cout<<"xpos:"<<array[4]<<endl;
-            cout<<"ypos:"<<array[5]<<endl;
-            cout<<"flag:"<<array[6]<<endl;
+            cout<<"state:"<<array[0]<<endl;
+            cout<<"xmin:"<<array[1]<<endl;
+            cout<<"xmax:"<<array[2]<<endl;
+            cout<<"ymin:"<<array[3]<<endl;
+            cout<<"ymax:"<<array[4]<<endl;
+            cout<<"xpos:"<<array[5]<<endl;
+            cout<<"ypos:"<<array[6]<<endl;
+            cout<<"flag:"<<array[7]<<endl;
             cout<<"-------end-------"<<endl;
             break;
         }
