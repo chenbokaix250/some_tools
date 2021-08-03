@@ -6,7 +6,9 @@
 
 测试时需要显示目标视频信息，方便双方联调。
 
+## 通信架构图
 
+![Communication architecture.png](https://i.loli.net/2021/08/03/aKqvZLzbIdg8wcj.png)
 ## Demo
 
 ### Require
