@@ -19,8 +19,11 @@
 git clone https://github.com/chenbokai/udp_transmission.git
 
 cd udp_transmission/
-`
-cmake .&&make
+
+mkdir build 
+
+cd  build 
+cmake ..&&make
 ```
 
 ### message
@@ -48,6 +51,7 @@ server_msg only has 1  parameters:
 
 #### how to run
 ```
+cd  build
 ./server_msg 2000
 ./client_msg 127.0.0.1 2000 150 350 200 400 35.85 46.73 2
 ```
@@ -68,8 +72,9 @@ server_msg only has 1 parameters:
 #### how to run
 
 ```
+cd  build
 ./server_img 2000
-./client_img 127.0.0.1 2000 image/tst.jpg
+./client_img 127.0.0.1 2000 ../image/tst.jpg
 ```
 >接收的图片会以taker_over+端口号的命名 保存在image文件夹中
 
@@ -91,8 +96,32 @@ server_msg only has 1 parameters:
  ./client_video 127.0.0.1 2000 
  ```
 
+## command
+
+image command include two parts:client& server
+
+client_img has three parameters:
+* Server
+* Port 
+* command
+
+server_msg only has 1 parameters:
+* Port
+
+Command:
+* start
+* end
+
+other command will cause error.
+
+ #### how to run
+
+ ```
+ ./server_cmd 2000
+ ./client_cmd 127.0.0.1 2000  start/end
+ ```
 ## Todo
 
-后期加入 启动和结束的通信
+后期完成脚本编写
 
 
