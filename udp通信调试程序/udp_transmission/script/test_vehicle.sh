@@ -11,7 +11,7 @@ value1=`./client_cmd 127.0.0.1 2000 start`
 value2=$?
 value3=$1
 
-#echo "value1:$value1"
+echo "value1:$value1"
 #echo "value2:$value2"
 
 
