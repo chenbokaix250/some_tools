@@ -59,7 +59,7 @@ try{
         imshow("recv",frame);
         free(longbuf);
         waitKey(1000);//显示图像
-        string pic_name = "image/take_over" + to_string(servPort) + ".jpg";
+        string pic_name = "../image/img" + to_string(servPort) + ".jpg";
         imwrite(pic_name,frame);//重命名图像
         break;
     }

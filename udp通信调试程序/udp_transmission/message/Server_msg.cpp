@@ -41,7 +41,7 @@ int main(int argc, char * argv[]) {
         
         if(sizeof(buffer)> 20) {
             ofstream outfile;
-            outfile.open("msg.txt");
+            outfile.open("../message/msg"+to_string(servPort)+".txt");
             outfile<<buffer<<endl;
             outfile.close();
             cout<<"保存完毕"<<endl;

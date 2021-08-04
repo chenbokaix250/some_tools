@@ -27,12 +27,15 @@ int main(int argc, char * argv[]) {
     if(word == "start"){
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
         cout<<"发送启动命令"<<endl;
+        printf("success!\n");
     }else if(word == "end"){
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
         cout<<"发送停止命令"<<endl;
+        printf("failure!\n");
     }else{
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
         cout<<"指令错误！"<<endl;
+        printf("err info!\n");
     }
 
 

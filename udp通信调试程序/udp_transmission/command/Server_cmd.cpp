@@ -35,21 +35,21 @@ int main(int argc, char * argv[]) {
         cout<<"buffer:"<<buffer<<endl;
 
         cout<<sizeof(buffer)<<endl;
+        stringstream ss;
+        ss<<buffer;
+        string key = ss.str();
+        cout<<key<<endl;
+        if(key == "start"){
+            cout<<"启动光电设备"<<endl;
+        }else if(key == "end"){
+            cout<<"关闭光电设备"<<endl;
+            break;
+        }else{
 
+            cout<<"发送指令错误！"<<endl;
+    }
         
-        break;
     }
-    stringstream ss;
-    ss<<buffer;
-    string key = ss.str();
-    cout<<key<<endl;
-    if(key == "start"){
-        cout<<"启动光电设备"<<endl;
-    }else if(key == "end"){
-        cout<<"关闭光电设备"<<endl;
-    }else{
-
-        cout<<"发送指令错误！"<<endl;
-    }
+    
     return 0;
 }
