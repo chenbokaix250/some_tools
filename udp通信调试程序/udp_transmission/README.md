@@ -97,6 +97,10 @@ server_msg only has 1 parameters:
 ---
 8月4日 完成发送脚本设计工作
 
+## 脚本架构
+
+![Script_design.png](https://i.loli.net/2021/08/05/J3cln8bgmBfZPdT.png)
+
 ### script
 
 >说明
@@ -118,6 +122,10 @@ server_msg only has 1 parameters:
 
 ~~后期加入 启动和结束的通信~~  已完成
 
-进一步优化通信设计方案
+~~进一步优化通信设计方案~~  已完成脚本优化设计
+
+根据用户需求，做进一步改进
+
+待测试后敲定相关协议
 
 
