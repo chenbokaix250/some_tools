@@ -31,7 +31,7 @@ int main(int argc, char * argv[]) {
     }else if(word == "end"){
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
         cout<<"发送停止命令"<<endl;
-        printf("failure!\n");
+        printf("shut down!\n");
     }else{
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
         cout<<"指令错误！"<<endl;

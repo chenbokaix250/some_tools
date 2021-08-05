@@ -41,14 +41,13 @@ int main(int argc, char * argv[]) {
         cout<<key<<endl;
         if(key == "start"){
             cout<<"启动光电设备"<<endl;
+            break;
         }else if(key == "end"){
             cout<<"关闭光电设备"<<endl;
             break;
         }else{
-
             cout<<"发送指令错误！"<<endl;
-    }
-        
+        }
     }
     
     return 0;

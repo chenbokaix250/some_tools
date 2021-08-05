@@ -11,7 +11,7 @@ value1=`./client_cmd 127.0.0.1 2000 start`
 value2=$?
 value3=$1
 
-echo "value1:$value1"
+#echo "value1:$value1"
 #echo "value2:$value2"
 
 
@@ -72,8 +72,16 @@ do
     if [[  $msg1_get>0 ]] && [[  $msg2_get>0 ]] && [[  $img1_get>0 ]] && [[  $img1_get>0 ]]
     then
         echo  "传输全部完成！"
+        
         break
     fi
 
     sleep 3s
 done
+
+sleep 5s
+value4=`./client_cmd 127.0.0.1 2000 end`
+if [[ $value4 =~ "shut down" ]] 
+then
+    echo "发送关闭指令！"
+fi 

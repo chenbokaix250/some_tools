@@ -6,6 +6,9 @@
 
 测试时需要显示目标视频信息，方便双方联调。
 
+## 通信架构图
+
+![Communication architecture.png](https://i.loli.net/2021/08/03/aKqvZLzbIdg8wcj.png)
 
 ## Demo
 
@@ -91,8 +94,39 @@ server_msg only has 1 parameters:
  ./client_video 127.0.0.1 2000 
  ```
 
+---
+8月4日 完成发送脚本设计工作
+
+
+## 脚本架构
+
+![Script_design.png](https://i.loli.net/2021/08/05/J3cln8bgmBfZPdT.png)
+
+### script
+
+>说明
+`init_kill.sh`              用于初始化，删除过程文件
+`kill_video`               用于测试模式时，结束video挂起进程
+`send_sim.sh`         用于模拟msg和img的发送
+`test_vehicle.sh`    接收自动化脚本，用于完成进程管理、文件确认、监听管理
+
+#### how to run
+```
+./init_kill.sh #删除之前的过程文件
+./test_vehicle.sh #启动监听   参数test可用与启动video（Port 5000）
+./send_sim.sh  #启动发送模拟程序，发送msg1，msg2，img1，img2
+./kill_video #启动利用test启动 test_vehicle时，video是挂起的，结束时需要关闭其进程
+```
+
+
 ## Todo
 
-后期加入 启动和结束的通信
+~~后期加入 启动和结束的通信~~  已完成
+
+~~进一步优化通信设计方案~~  已完成脚本优化设计
+
+根据用户需求，做进一步改进
+
+待测试后敲定相关协议
 
 
