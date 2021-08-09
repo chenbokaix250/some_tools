@@ -97,6 +97,7 @@ server_msg only has 1 parameters:
 ---
 8月4日 完成发送脚本设计工作
 
+
 ## 脚本架构
 
 ![Script_design.png](https://i.loli.net/2021/08/05/J3cln8bgmBfZPdT.png)
@@ -117,6 +118,8 @@ server_msg only has 1 parameters:
 ./kill_video #启动利用test启动 test_vehicle时，video是挂起的，结束时需要关闭其进程
 ```
 
+----
+
 ### 请求脚本设计
 
 当网络阻塞 冲突导致接收任务未能完全完成时，需要进行请求来重启发送
@@ -126,8 +129,6 @@ server_msg only has 1 parameters:
 后因为脚本设计缺陷 导致异常退出 目前原因仍在排查
 
 现利用重新发送3次，来避免网络阻塞
-
-
 ## Todo
 
 ~~后期加入 启动和结束的通信~~  已完成

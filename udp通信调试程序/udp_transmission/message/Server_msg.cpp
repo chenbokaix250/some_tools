@@ -1,7 +1,7 @@
 #include "../lib/PracticalSocket.h" // For UDPSocket and SocketException
 #include <iostream>          // For cout and cerr
 #include <cstdlib>           // For atoi()
-
+#include <fstream>
 #define BUF_LEN 65540 // Larger than maximum UDP packet size
 
 #include "opencv2/opencv.hpp"
