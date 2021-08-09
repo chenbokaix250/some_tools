@@ -1,4 +1,6 @@
 #!/bin/bash
+
+value_address="192.168.1.103"
 echo "车辆到达指定位置!"
 cd ..
 cd build
@@ -7,7 +9,7 @@ echo $(pwd)
 pkill -f server_img
 pkill  -f server_msg
 pkill -f server_video
-value1=`./client_cmd 127.0.0.1 2000 start`
+value1=`./client_cmd $value_address 2000 start`
 value2=$?
 value3=$1
 
@@ -49,8 +51,8 @@ do
         echo "msg1传输完成！"
         msg1_get=1
     else
-        ./client_cmd 127.0.0.1 2000 msg1 
-        sleep 1s
+        ./client_cmd $value_address 2000 msg1 
+        
     fi
 
     if [[  -e $msg_file2 ]]
@@ -58,8 +60,8 @@ do
         echo "msg2传输完成！"
         msg2_get=1
     else
-        ./client_cmd 127.0.0.1 2000 msg2
-        sleep 1s
+        ./client_cmd $value_address 2000 msg2
+        
     fi
 
     if [[  -e $img_file1 ]]
@@ -67,8 +69,8 @@ do
         echo "img1传输完成！"
         img1_get=1
     else
-        ./client_cmd 127.0.0.1 2000 img1 
-        sleep 1s
+        ./client_cmd $value_address 2000 img1 
+        
     fi
 
      if [[  -e $img_file2 ]]
@@ -76,8 +78,8 @@ do
         echo "img2传输完成！"
         img2_get=1
     else
-        ./client_cmd 127.0.0.1 2000 img2
-        sleep 1s
+        ./client_cmd $value_address 2000 img2
+        
     fi
     #echo $msg1_get
     #echo $msg2_get
@@ -88,12 +90,13 @@ do
         break
     fi
 
-    sleep 3s
+    sleep 1s
 done
 
-sleep 5s
-value4=`./client_cmd 127.0.0.1 2000 end`
+sleep 3s
+value4=`./client_cmd $value_address 2000 end`
 if [[ $value4 =~ "shut down" ]] 
 then
+    ./client_cmd $value_address 2000 end
     echo "发送关闭指令！"
 fi 

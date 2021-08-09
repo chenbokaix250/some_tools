@@ -26,15 +26,31 @@ int main(int argc, char * argv[]) {
     UDPSocket sock;
     if(word == "start"){
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
-        cout<<"发送启动命令"<<endl;
+        cout<<"client_cmd:发送启动命令"<<endl;
         printf("success!\n");
     }else if(word == "end"){
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
-        cout<<"发送停止命令"<<endl;
+        cout<<"client_cmd:发送停止命令"<<endl;
         printf("shut down!\n");
+    }else if(word == "msg1"){
+        sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
+        cout<<"client_cmd:发送msg1"<<endl;
+        
+    }else if(word == "msg2"){
+        sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
+        cout<<"client_cmd:发送msg2"<<endl;
+        
+    }else if(word == "img1"){
+        sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
+        cout<<"client_cmd:发送img1"<<endl;
+        
+    }else if(word == "img2"){
+        sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
+        cout<<"client_cmd:发送img2"<<endl;
+        
     }else{
         sock.sendTo(sendbytes, sizeof(sendbytes), servAddress, servPort);
-        cout<<"指令错误！"<<endl;
+        cout<<"client_cmd:指令错误！"<<endl;
         printf("err info!\n");
     }
 
