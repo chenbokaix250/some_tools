@@ -36,6 +36,21 @@ client_msg parameters include(total10) :
 |----|----|----|----|----|----|----|----|----|----|
 |State|server|Port|Xmin|Xmax|Ymin|Ymax|Xpos|Ypos|Flag|
 
+State 表示当前设备所处的状态
+
+server 表示传输地址
+
+Port  表示传输端口号
+
+检测框信息
+（Xmin，Ymin）和（Xmax，Ymax） 表示检测框在图像上的坐标点 如下图所示
+
+![Untitled Diagram.png](https://i.loli.net/2021/08/10/OLW6UGowqeaC9xm.png)
+
+Xpos和Ypos是障碍物在侦察设备坐标系下的距离信息
+
+![Untitled Diagram _1_.png](https://i.loli.net/2021/08/10/Ea6Zpbu2o8hHq4M.png)
+
 State 0,1,2:
 * 0 --- init
 * 1 --- working
