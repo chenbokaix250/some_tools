@@ -1,0 +1,4 @@
+/Users/bokaichen/user/Message_send/build/CMakeFiles/Message_send.dir
+/Users/bokaichen/user/Message_send/build/CMakeFiles/Message_recv.dir
+/Users/bokaichen/user/Message_send/build/CMakeFiles/edit_cache.dir
+/Users/bokaichen/user/Message_send/build/CMakeFiles/rebuild_cache.dir
